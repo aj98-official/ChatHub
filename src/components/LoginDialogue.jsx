@@ -1,7 +1,18 @@
-import { Dialog, Box, Button } from "@mui/material";
+import { Dialog } from "@mui/material";
+
+import { useContext } from "react";
+import { AccountContext } from "../context/AccountProvider";
+
+import { GoogleLogin } from '@react-oauth/google';
+import jwt_decode from 'jwt-decode';
+
 import "./LoginDialog.css";
 
+
 const LoginDialog = () => {
+
+  const { setAccount } = useContext(AccountContext)
+
   const dialogStyle = {
     height: "80%",
     width: "70%",
@@ -9,8 +20,18 @@ const LoginDialog = () => {
     overflow: 'hidden'
   };
 
+
+  const loginSuccess = (res) => {
+    const decode = jwt_decode(res.credential);
+    setAccount(decode);
+  }
+
+  const loginFailed = (res) => {
+    console.log('Login Failed', res);
+  }
+
   return (
-    <Dialog open={true} PaperProps={{ sx: dialogStyle }}>
+    <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true}>
       <div className="login">
         <div className="login_container">
           <img
@@ -18,9 +39,12 @@ const LoginDialog = () => {
             alt=""
           />
           <div className="login_text">
-            <h1>Sign in to WhatsApp</h1>
+            <h2>Sign in to WhatsApp</h2>
           </div>
-          <Button type="submit">Sign in With Google</Button>
+          <GoogleLogin
+            onSuccess={loginSuccess}
+            onError={loginFailed}
+          />
         </div>
       </div>
     </Dialog>
