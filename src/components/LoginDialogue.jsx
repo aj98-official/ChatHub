@@ -7,7 +7,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 
 import "./LoginDialog.css";
-
+import { addUser } from "../service/api";
 
 const LoginDialog = () => {
 
@@ -21,9 +21,10 @@ const LoginDialog = () => {
   };
 
 
-  const loginSuccess = (res) => {
+  const loginSuccess = async (res) => {
     const decode = jwt_decode(res.credential);
     setAccount(decode);
+    await addUser(decode);
   }
 
   const loginFailed = (res) => {
