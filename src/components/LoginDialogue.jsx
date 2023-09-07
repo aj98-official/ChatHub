@@ -36,10 +36,10 @@ const LoginDialog = () => {
         <div className="login_container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-            alt=""
+            alt="app-logo"
           />
           <div className="login_text">
-            <h2>Sign in to WhatsApp</h2>
+            <h2>Sign in to ChatHub</h2>
           </div>
           <GoogleLogin
             onSuccess={loginSuccess}
