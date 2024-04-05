@@ -37,12 +37,12 @@ const IconContainer = styled(Box)`
 
 
 const ChatHeader = () => {
-    const { account } = useContext(AccountContext);
+    const { currentChat } = useContext(AccountContext);
     return (
         <Container>
-            <Image src={account?.picture} alt='dp' />
+            <Image src={currentChat?.picture} alt='dp' />
             <Box>
-                <Name>{_.startCase(account?.name)}</Name>
+                <Name>{_.startCase(currentChat?.name)}</Name>
                 <Status>online</Status>
             </Box>
 

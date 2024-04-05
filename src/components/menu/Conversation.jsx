@@ -1,6 +1,7 @@
 import _ from "lodash";
 import { Box, Typography, styled, Divider } from "@mui/material";
-
+import { useContext } from "react";
+import { AccountContext } from "../../context/AccountProvider";
 const Component = styled(Box)`
 display: flex; 
 cursor: pointer;
@@ -21,9 +22,12 @@ height: 2px;
 `;
 
 const Conversation = ({ user }) => {
-
+  const { setCurrentChat } = useContext(AccountContext);
+  const handleClick = () => {
+    setCurrentChat(user);
+  }
   return (
-    <Box>
+    <Box onClick={handleClick}>
       <Component>
         <Box>
           <Image src={user.picture} alt="dp" />
