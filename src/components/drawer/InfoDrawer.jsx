@@ -4,32 +4,29 @@ import _ from "lodash";
 import { Drawer, Box, styled, Typography } from "@mui/material"
 import { ArrowBack } from "@mui/icons-material";
 
-const InfoDrawer = ({ open, setOpen }) => {
 
-    const { account } = useContext(AccountContext);
+//styles
+const drawerStyle = {
+    left: 30,
+    top: 18,
+    height: '95%',
+    width: '29%',
+    backgroundColor: '#ededed',
+    minWidth: 350
+}
 
-    //styles
-    const drawerStyle = {
-        left: 30,
-        top: 18,
-        height: '95%',
-        width: '29%',
-        backgroundColor: '#ededed',
-        minWidth: 350
-    }
-
-    const ImageContainer = styled(Box)`
+const ImageContainer = styled(Box)`
        display: flex;
        justify-content: center;
     `
-    const Image = styled('img')({
-        height: 200,
-        width: 200,
-        padding: 50,
-        borderRadius: '50%'
-    })
+const Image = styled('img')({
+    height: 200,
+    width: 200,
+    padding: 50,
+    borderRadius: '50%',
+})
 
-    const NameWrap = styled(Box)`
+const NameWrap = styled(Box)`
        background-color: #ffffff;
        padding: 20px 25px;
        box-shadow: 0px 2px 4px rgb(0, 0, 0, 0.1);
@@ -38,13 +35,13 @@ const InfoDrawer = ({ open, setOpen }) => {
        }
     `
 
-    const Text = styled(Typography)`
+const Text = styled(Typography)`
        font-size: 14px;
        color: #6b7b8e;
        padding: 10px 25px;
     `
 
-    const Header = styled(Box)`
+const Header = styled(Box)`
         height: 120px;
         background-color: #008069;
         color: #fff;
@@ -62,6 +59,12 @@ const InfoDrawer = ({ open, setOpen }) => {
             font-weight: 600;
         }        
     `
+
+const InfoDrawer = ({ open, setOpen }) => {
+
+    const { account } = useContext(AccountContext);
+
+
     return (
         <>
             <Drawer

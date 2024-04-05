@@ -9,17 +9,16 @@ import jwt_decode from 'jwt-decode';
 import "./LoginDialog.css";
 import { addUser } from "../service/api";
 
+const dialogStyle = {
+  height: "80%",
+  width: "70%",
+  maxWidth: "100%",
+  overflow: 'hidden'
+};
+
 const LoginDialog = () => {
 
   const { setAccount } = useContext(AccountContext)
-
-  const dialogStyle = {
-    height: "80%",
-    width: "70%",
-    maxWidth: "100%",
-    overflow: 'hidden'
-  };
-
 
   const loginSuccess = async (res) => {
     const decode = jwt_decode(res.credential);

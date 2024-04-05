@@ -4,6 +4,11 @@ import { getUsers } from "../../service/api";
 import { AccountContext } from "../../context/AccountProvider";
 import { Box, styled } from "@mui/material";
 
+const Component = styled(Box)`
+height: 81vh;
+overflow: overlay;
+`
+
 const Conversations = () => {
   const [users, setUsers] = useState([]);
 
@@ -20,14 +25,9 @@ const Conversations = () => {
 
   const { account } = useContext(AccountContext);
 
-
-  const Component = styled(Box)`
-        height: 81vh;
-        overflow: overlay;
-  `
   return (
     <Component>
-      {users.map((user) => (
+      {users?.map((user) => (
         user.sub !== account.sub && <Conversation user={user} />
       ))}
     </Component>

@@ -6,37 +6,35 @@ import { Chat } from '@mui/icons-material';
 import HeaderMenu from "./HeaderMenu";
 import InfoDrawer from "../drawer/InfoDrawer";
 
-
-const Header = () => {
-
-    const { account } = useContext(AccountContext);
-
-    const Component = styled(Box)`
+const Component = styled(Box)`
         height: 44px;
         background-color: #ededed;
         padding: 8px 16px;
         display: flex;
         align-items: center;
     `
-    const Wrapper = styled(Box)`
+const Wrapper = styled(Box)`
         margin-left: auto;
         padding-top: 10px;
         display: flex;
         align-items: center;
     `
-    const ChatIcon = styled(Chat)`
+const ChatIcon = styled(Chat)`
         font-size: 22px;
         color : #40514e;
         margin-right: 20px;
     `
 
 
-    const Image = styled('img')({
-        height: 40,
-        width: 40,
-        borderRadius: 50
-    })
+const Image = styled('img')({
+    height: 40,
+    width: 40,
+    borderRadius: 50
+})
 
+const Header = () => {
+
+    const { account } = useContext(AccountContext);
     const [openDrawer, setOpenDrawer] = useState(false);
 
     return (

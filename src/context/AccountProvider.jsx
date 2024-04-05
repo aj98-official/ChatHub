@@ -7,9 +7,10 @@ export const AccountContext = createContext(null);
 const AccountProvider = ({ children }) => {
 
     const [account, setAccount] = useState();
+    const [currentPerson, setCurrentPerson] = useState({});
 
     return (
-        <AccountContext.Provider value={{ account, setAccount }} > {children} </AccountContext.Provider>
+        <AccountContext.Provider value={{ account, setAccount, currentPerson, setCurrentPerson }} > {children} </AccountContext.Provider>
     )
 }
 

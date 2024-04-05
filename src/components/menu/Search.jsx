@@ -1,9 +1,8 @@
 import { Box, styled, InputBase } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 
-const Search = () => {
 
-    const Component = styled(Box)`
+const Component = styled(Box)`
           height: 40px;
           background-color: #fff;
           border-bottom: solid 2px #f0f2f5;
@@ -11,7 +10,7 @@ const Search = () => {
           display: flex;
           align-items: center;
     `
-    const Wrap = styled(Box)`
+const Wrap = styled(Box)`
           background-color: #f5f5f5;
           width: 100%;
           height: 90%;
@@ -20,18 +19,21 @@ const Search = () => {
           align-items: center;
     `
 
-    const Icon = styled(Box)`
+const Icon = styled(Box)`
           padding: 6px 15px;
           margin-right: 10px;
     `
-    const StyledSearchIcon = styled(SearchIcon)`
+const StyledSearchIcon = styled(SearchIcon)`
           font-size: 20px;
           color: #738598
     `
 
-    const InputBox = styled(InputBase)`
-       
+const InputBox = styled(InputBase)`
+            width: 100%;
+            align-items: center;
     `
+const Search = () => {
+
     return (
         <Component>
             <Wrap>
