@@ -5,31 +5,32 @@ import { AccountContext } from "../../context/AccountProvider";
 import { Box, styled } from "@mui/material";
 
 const Component = styled(Box)`
-height: 81vh;
-overflow: overlay;
-`
+  height: 81vh;
+  overflow: overlay;
+`;
 
-const Conversations = () => {
+const Conversations = ({ text }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       let response = await getUsers();
-
+      response = response.filter((user) =>
+        user.name.toLowerCase().includes(text.toLowerCase())
+      );
       setUsers(response);
-      console.log(users);
     };
 
     fetchUsers();
-  }, []);
+  }, [text]);
 
   const { account } = useContext(AccountContext);
 
   return (
     <Component>
-      {users?.map((user) => (
-        user.sub !== account.sub && <Conversation user={user} />
-      ))}
+      {users?.map(
+        (user) => user.sub !== account.sub && <Conversation user={user} />
+      )}
     </Component>
   );
 };

@@ -32,7 +32,7 @@ const InputBox = styled(InputBase)`
             width: 100%;
             align-items: center;
     `
-const Search = () => {
+const Search = ({setText}) => {
 
     return (
         <Component>
@@ -40,7 +40,7 @@ const Search = () => {
                 <Icon>
                     <StyledSearchIcon />
                 </Icon>
-                <InputBox placeholder="Search" />
+                <InputBox placeholder="Search" onChange={(e) => setText(e.target.value)} />
             </Wrap>
         </Component>
     )
